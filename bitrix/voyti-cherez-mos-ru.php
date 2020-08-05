@@ -8,13 +8,13 @@ $APPLICATION->SetTitle("Войти через mos.ru");
 
 	$code = $_GET["code"];
 	
-    echo $code;
+  //  echo $code;
 
    $client_id = "moscowzoo.ru";
 	$client_secret = base64_encode("moscowzoo.ru:TSLnU3D5hLqedlt");
    $redirect_uri = "https://moscowzoo.ru/voyti-cherez-mos-ru.php";
-   $url = "https://login-tech.mos.ru/sps/oauth/te";
-   $url2 = "https://login-tech.mos.ru/sps/oauth/me";
+   $url = "https://login.mos.ru/sps/oauth/te";
+   $url2 = "https://login.mos.ru/sps/oauth/me";
 
    $postfield = http_build_query(array(
       'grant_type' => 'authorization_code',
@@ -149,7 +149,7 @@ $outurl = "https://login.mos.ru/sps/login/logout?post_logout_redirect_uri=https:
 		} else { 
 			echo "<a id='mos_button_link' href='$outurl'><div id='mos_button'>Выйти</div></a>";
 		}
-
+exit(1);
 ?>
 <?
 //require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");

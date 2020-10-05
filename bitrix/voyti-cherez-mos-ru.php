@@ -136,12 +136,12 @@ if ($mail !== null){
 
 
 
-$inurl = "https://login.mos.ru/sps/oauth/ae?client_id=moscowzoo.ru&amp;scope=openid%
-20contacts%20profile&amp;redirect_uri=https://moscowzoo.ru/voyti-cherez-mos-ru.php&amp;response_type=c
+$inurl = "https://login.mos.ru/sps/oauth/ae?client_id=&&amp;scope=openid%
+20contacts%20profile&amp;redirect_uri=&&amp;response_type=c
 ode";
 
 
-$outurl = "https://login.mos.ru/sps/login/logout?post_logout_redirect_uri=https://moscowzoo.ru/voyti-cherez-mos-ru.php?logout=1";
+$outurl = "https://login.mos.ru/sps/login/logout?post_logout_redirect_uri=&?logout=1";
 
 	if (!$USER->IsAuthorized())
 		{

@@ -20,7 +20,8 @@ class mosauth_widget extends WP_Widget {
         $tagline = get_bloginfo( 'description' );
 
         echo $args['before_widget'] . $args['before_title'] . $title . $args['after_title']; ?>
-        
+        <a id='mos_button_link' href= "<?php echo get_site_url(); ?>"
+		  <div id='mos_button'>Вход через mos.ru</div></a>
         <?php echo $args['after_widget'];
     }
 

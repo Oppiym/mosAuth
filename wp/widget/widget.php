@@ -1,16 +1,16 @@
 <?
 /* Виджет авторизации через mos.ru */
 
-/* Виджет WPSchool Widget */
-class wpschool_example_widget extends WP_Widget {
+/* Виджет MosAuth Widget */
+class mosauth_widget extends WP_Widget {
 
     // Установка идентификатора, заголовка, имени класса и описания для виджета.
     public function __construct() {
         $widget_options = array(
-            'classname' => 'wpschool_widget',
-            'description' => 'Это наш первый виджет',
+            'classname' => 'mosauth_widget',
+            'description' => 'Виджет авторизации через mos.ru',
         );
-        parent::__construct( 'wpschool_widget', 'WPSchool Widget', $widget_options );
+        parent::__construct( 'mosauth_widget', 'MosAuth Widget', $widget_options );
     }
 
     // Вывод виджета в области виджетов на сайте.
@@ -20,8 +20,8 @@ class wpschool_example_widget extends WP_Widget {
         $tagline = get_bloginfo( 'description' );
 
         echo $args['before_widget'] . $args['before_title'] . $title . $args['after_title']; ?>
-        <p><strong>Site Name:</strong> <?php echo $blog_title ?></p>
-        <p><strong>Tagline:</strong> <?php echo $tagline ?></p>
+        <p><strong>Название сайта:</strong> <?php echo $blog_title ?></p>
+        <p><strong>Тэги:</strong> <?php echo $tagline ?></p>
         <?php echo $args['after_widget'];
     }
 
@@ -29,7 +29,7 @@ class wpschool_example_widget extends WP_Widget {
     public function form( $instance ) {
         $title = ! empty( $instance['title'] ) ? $instance['title'] : ''; ?>
         <p>
-        <label for="<?php echo $this->get_field_id( 'title' ); ?>">Title:</label>
+        <label for="<?php echo $this->get_field_id( 'title' ); ?>">Название:</label>
         <input type="text" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" value="<?php echo esc_attr( $title ); ?>" />
         </p><?php
     }
@@ -44,8 +44,8 @@ class wpschool_example_widget extends WP_Widget {
 }
 
 // Регистрация и активация виджета.
-function wpschool_register_widget() {
-    register_widget( 'wpschool_example_widget' );
+function mosauth_register_widget() {
+    register_widget( 'mosauth_widget' );
 }
-add_action( 'widgets_init', 'wpschool_register_widget' );
+add_action( 'widgets_init', 'mosauth_register_widget' );
 ?>

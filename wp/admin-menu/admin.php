@@ -10,10 +10,12 @@ function auth_mos_plugin_page(){
 	global $auth_mos_client_id, $auth_mos_client_secret, $auth_mos_client_scope;
 	?> 
 		<form action="action.php" method="post">
+		<div>
 		<p>Ваш client_id: <input type="text" name="client_id" value="<?php echo $auth_mos_client_id?>" /></p>
 		<p>Ваш client_secret: <input type="text" name="age" value="<?php echo $auth_mos_client_secret?>"/></p>
 		<p>Ваш scope, через пробел: <input type="text" name="scope" value="<?php echo $auth_mos_client_scope?>"/></p>
 		<p><input type="submit" /></p>
+		</div>
 </form>
 <?
 }

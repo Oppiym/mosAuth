@@ -20,8 +20,7 @@ class mosauth_widget extends WP_Widget {
         $tagline = get_bloginfo( 'description' );
 
         echo $args['before_widget'] . $args['before_title'] . $title . $args['after_title']; ?>
-        <p><strong>Название сайта:</strong> <?php echo $blog_title ?></p>
-        <p><strong>Тэги:</strong> <?php echo $tagline ?></p>
+        
         <?php echo $args['after_widget'];
     }
 
@@ -31,7 +30,7 @@ class mosauth_widget extends WP_Widget {
         <p>
         <label for="<?php echo $this->get_field_id( 'title' ); ?>">Название:</label>
         <input type="text" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" value="<?php echo esc_attr( $title ); ?>" />
-        </p><?php
+        </><?php
     }
 
     // Обновление настроек виджета в админ-панели.

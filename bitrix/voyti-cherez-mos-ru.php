@@ -10,9 +10,9 @@ $APPLICATION->SetTitle("Войти через mos.ru");
 	
   //  echo $code;
 
-   $client_id = "moscowzoo.ru";
-	$client_secret = base64_encode("moscowzoo.ru:TSLnU3D5hLqedlt");
-   $redirect_uri = "https://moscowzoo.ru/voyti-cherez-mos-ru.php";
+   $client_id = "";
+	$client_secret = base64_encode(":");
+   $redirect_uri = "";
    $url = "https://login.mos.ru/sps/oauth/te";
    $url2 = "https://login.mos.ru/sps/oauth/me";
 
@@ -127,7 +127,7 @@ if ($mail !== null){
    global $USER;
 	$USER->Authorize((int)$ID);
 	if ($USER->IsAuthorized()) { echo "Вы авторизованы!";}
-//	else{ echo "ваш код гавно!";}
+
 
 
 
@@ -145,14 +145,11 @@ $outurl = "https://login.mos.ru/sps/login/logout?post_logout_redirect_uri=https:
 
 	if (!$USER->IsAuthorized())
 		{
-			echo "<a id='mos_button_link' href='$inurl'><div id='mos_button'>Вход через mos.ru реализация через div</div></a>";
+			echo "<a id='mos_button_link' href='$inurl'><div id='mos_button'>Вход через mos.ru</div></a>";
 		} else { 
 			echo "<a id='mos_button_link' href='$outurl'><div id='mos_button'>Выйти</div></a>";
 		}
 exit(1);
-?>
-<?
-//require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");
 ?>
 <style>
 

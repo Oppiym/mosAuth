@@ -10,8 +10,6 @@
  * License URI: https://www.gnu.org/licenses/gpl-2.0.html
  */
 global $auth_mos_client_id, $auth_mos_client_secret, $auth_mos_scope;
-$auth_mos_client_id = 1;
-
 
 $path = dirname(__FILE__); 
 include($path . '/admin-menu/admin.php');
@@ -26,25 +24,25 @@ function mos_install () {
    $table_name = $wpdb->prefix . "mosauth";
    if($wpdb->get_var("show tables like '$table_name'") != $table_name) {
       
-      $sql = "CREATE TABLE " . $table_name . " (
-	  id mediumint(9) NOT NULL AUTO_INCREMENT,
-	  client_id text DEFAULT '0' NOT NULL,
-	  mos_client_secret text NOT NULL,
-	  mos_scope text NOT NULL,
-	  UNIQUE KEY id (id)
+   $sql = "CREATE TABLE " . $table_name . " (
+   id mediumint(9) NOT NULL AUTO_INCREMENT,
+	client_id text DEFAULT '0' ,
+	mos_client_secret text ,
+	mos_scope text ,
+	UNIQUE KEY id (id)
 	);";
 
-      require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
-      dbDelta($sql);
+   require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
+   dbDelta($sql);
 
-//    $welcome_name = "Mr. WordPress";
-//    $welcome_text = "Congratulations, you just completed the installation!";
-//
-//      $insert = "INSERT INTO " . $table_name .
-//            " (time, name, text) " .
-//            "VALUES ('" . time() . "','" . $wpdb->escape($welcome_name) . "','" . $wpdb->escape($welcome_text) . "')";
-//
-//      $results = $wpdb->query( $insert );
+   $auth_mos_client_id = "Mr. WordPress";
+   $auth_mos_client_secret = "Congratulations, you just completed the installation!";
+	$auth_mos_scope = "La la la";
+	$insert = "INSERT INTO " . $table_name .
+            " (client_id, mos_client, mos_scope) " .
+            "VALUES ('" . $wpdb->escape($auth_mos_client_id) . "','" . $wpdb->escape($auth_mos_client_secret) . "','" . $wpdb->escape($auth_mos_scope) . "')";
+
+      $results = $wpdb->query( $insert );
       add_option("mos_db_version", $mos_db_version);
 
    }
